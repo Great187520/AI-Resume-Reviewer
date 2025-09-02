@@ -1,0 +1,15 @@
+-- schema.sql
+CREATE EXTENSION IF NOT EXISTS vector;
+
+CREATE TABLE resumes (
+    id SERIAL PRIMARY KEY,
+    job_id TEXT,
+    content TEXT,
+    embedding VECTOR(384) -- depends on model dims
+);
+
+CREATE TABLE jobs (
+    id SERIAL PRIMARY KEY,
+    title TEXT,
+    description TEXT
+);
